@@ -12,3 +12,6 @@ URL: https://github.com/AnglisM/xkcd
 BugReports: https://github.com/AnglisM/xkcd/issues
 Imports: 
     jsonlite
+Depends: 
+    R (>= 3.5)
+LazyData: true
