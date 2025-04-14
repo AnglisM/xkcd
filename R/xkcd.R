@@ -16,12 +16,43 @@
 #' * title: A scalar character vector
 #' * day: A scalar character vector
 #' @examples
-#' dino_time <- xkcd
+#' dino_time <- xkcd(15)
+#' str(dino_time)
 #' @export
 xkcd <- function(number) {
 
   url <- file.path("https://xkcd.com", floor(number), "info.0.json")
   x <- jsonlite::read_json(url)
   return(x)
+}
+
+#' @title plot an xkcd comic strip
+#' @description
+#' `draw_comics`displays an xkcd comic strip as plot
+#' @param x A list  object as returned from [xkcd()]
+#' @param x A list object as returned from [xkcd()]
+#' @importFrom tools file_ext
+#' @importFrom httr GET
+#' @importFrom png readPNG
+#' @importFrom jpeg readJPEG
+#' @importFrom graphics plot.new
+#' @importFrom grid grid.raster
+#' @returns A rastergrob grob. See"Details" section of the [grid::grob()] for more information.
+#' @examples
+#' dino_time <- xkcd(15)
+#' draw_comic(dino_time)
+
+draw_comic <- function(x) {
+
+  img_type <- tools::file_ext(x$img)
+  tmp <- httr::GET(url = x$img)
+
+  if(img_type == "png") {
+    img <- png::readPNG(tmp$content)
+  }else{
+    img <- jpeg :: readJPEG(tmp$content)
+  }
+  graphics::plot.new()
+  grid::grid.raster(img)
 }
 

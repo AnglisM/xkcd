@@ -29,5 +29,6 @@ A list of 13 elements
 Given a comic number, the \code{xkcd()} function calls the xkcd JSON API and returns metadata about the comic in the form of a list object.
 }
 \examples{
-dino_time <- xkcd
+dino_time <- xkcd(15)
+str(dino_time)
 }
