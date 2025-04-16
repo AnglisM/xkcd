@@ -1,0 +1,30 @@
+---
+title: "an introduction to the xkcd r package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{an introduction to the xkcd r package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(xkcd)
+```
+
+## Browsing xkcd comic
+The main function 
+
+
+## Comic data
+The `xkcd` package also comes with a built-in dataset describing the first 10 xkcd comics ever publised
+```{r}
+xkcd::xkcd_comics
+```
+
